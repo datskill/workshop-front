@@ -1,11 +1,35 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ConnexionComponent } from './components/connexion/connexion.component';
+import { HomeComponent } from './home/home/home.component';
+import { ClientComponent } from './client/client/client.component';
+import { SellerComponent } from './seller/seller/seller.component';
+import { LoginComponent } from './login/login/login.component';
 
 
 const routes: Routes = [
-  { path: "", component: ConnexionComponent, pathMatch: "full" },
+
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'client',
+    component: ClientComponent
+  },
+  {
+    path: 'seller',
+    component: SellerComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

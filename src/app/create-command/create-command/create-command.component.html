@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="position">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Création d'une commande</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="livraisonForm" (ngSubmit)="onSubmit(livraisonForm.value)">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Adresse de récupération de la commande</mat-label>
+                        <input matInput formControlName="adresseRecupererCommande">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Adresse de livraison</mat-label>
+                        <input matInput formControlName="adresse">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Nom du commerce</mat-label>
+                        <input matInput formControlName="nomCommerce">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Nom du client</mat-label>
+                        <input matInput formControlName="nomClient">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Numéro de téléphone du commerce</mat-label>
+                        <input matInput formControlName="numTelCommerce">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Numéro de téléphone du client</mat-label>
+                        <input matInput formControlName="numTelClient">
+                    </mat-form-field>
+                    <div style="padding-top: 10px;">
+                        <button mat-raised-button color="primary">Valider</button>
+                    </div>
+                </form>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

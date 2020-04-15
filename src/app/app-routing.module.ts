@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home/home.component';
 import { ClientComponent } from './client/client/client.component';
 import { SellerComponent } from './seller/seller/seller.component';
 import { LoginComponent } from './login/login/login.component';
+import { InscriptionComponent } from './inscription/inscription/inscription.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: HomeComponent
+    component: LoginComponent
   },
   {
     path: 'client',
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'inscription',
+    component: InscriptionComponent
   }
 ];
 

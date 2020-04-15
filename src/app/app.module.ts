@@ -28,8 +28,18 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatTooltipModule,
+  MatSidenavModule,
+  MatInput,
+  MatDialogModule,
+  MatSliderModule,
 
 } from '@angular/material';
+import { InscriptionComponent } from './inscription/inscription/inscription.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LivraisonAttenteComponent } from './livraison-attente/livraison-attente/livraison-attente.component';
+import { DialogLivraisonComponent } from './shared/dialog-livraison/dialog-livraison.component';
+import { CreateCommandComponent } from './create-command/create-command/create-command.component';
+import { SliderKmComponent } from './shared/slider-km/slider-km.component';
 
 @NgModule({
   exports: [
@@ -50,16 +60,37 @@ import {
     SelectAutocompleteModule,
     MatButtonModule,
     MatTooltipModule,
+    MatSidenavModule,
+    MatInputModule,
+    DialogLivraisonComponent
   ],
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     SellerComponent,
-    ClientComponent
+    ClientComponent,
+    InscriptionComponent,
+    LivraisonAttenteComponent,
+    DialogLivraisonComponent,
+    CreateCommandComponent,
+    SliderKmComponent,
+
+  ],
+  entryComponents: [
+    DialogLivraisonComponent
   ],
   imports: [
     BrowserModule,
+    MatListModule,
+    MatDialogModule,
+    MatSliderModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule

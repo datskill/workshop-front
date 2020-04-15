@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Commande N°{{data.name}}</h1>
+<div mat-dialog-content>
+    <p *ngIf="!data.estLivre">Livraison accepté ! Bonne route</p>
+    <p *ngIf="data.estLivre">Livraison effectué ! Merci</p>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+</div>

@@ -40,6 +40,7 @@ import { LivraisonAttenteComponent } from './livraison-attente/livraison-attente
 import { DialogLivraisonComponent } from './shared/dialog-livraison/dialog-livraison.component';
 import { CreateCommandComponent } from './create-command/create-command/create-command.component';
 import { SliderKmComponent } from './shared/slider-km/slider-km.component';
+import { LivraisonArtisanComponent } from './livraison-artisan/livraison-artisan/livraison-artisan.component';
 
 @NgModule({
   exports: [
@@ -75,6 +76,7 @@ import { SliderKmComponent } from './shared/slider-km/slider-km.component';
     DialogLivraisonComponent,
     CreateCommandComponent,
     SliderKmComponent,
+    LivraisonArtisanComponent,
 
   ],
   entryComponents: [

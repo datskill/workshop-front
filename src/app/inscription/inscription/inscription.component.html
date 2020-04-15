@@ -24,6 +24,10 @@
                         <input matInput formControlName="password" type="password">
                     </mat-form-field>
                     <mat-form-field class="example-full-width">
+                        <mat-label>Numéro de téléphone</mat-label>
+                        <input matInput formControlName="numeroTel" type="tel">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
                         <mat-label>Ville</mat-label>
                         <input matInput formControlName="ville">
                     </mat-form-field>
@@ -42,6 +46,12 @@
                     <div *ngIf="selected && selected === '0'">
                         Rayon de déplacement (en KM)
                         <app-slider-km (emitValue)="getValue($event)"></app-slider-km>
+                    </div>
+                    <div *ngIf="selected && selected === '1'">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Nom de la société</mat-label>
+                            <input matInput formControlName="nomSociete">
+                        </mat-form-field>
                     </div>
                     <div style="padding-top: 10px;">
                         <button mat-raised-button color="primary">Valider</button>

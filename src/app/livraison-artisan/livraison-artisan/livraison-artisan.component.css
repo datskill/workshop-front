@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.example-card {
+  max-width: 400px;
+  background-color: grey !important;
+}
+
+.position {
+    margin: auto;
+}
+.align {
+    text-align: center;
+}

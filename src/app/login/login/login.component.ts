@@ -21,5 +21,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.loginForm.value);
+    //TODO APPEL BACK 
+    console.log(sessionStorage.getItem('type'));
+    // Dans la réponse du back, enregistrer le type d'user dans le sessionStorage
   }
 }

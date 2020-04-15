@@ -1,11 +1,12 @@
+import { Livreur } from './livreur';
+import { Artisan } from './artisan';
+import { Client } from './client';
+
 export class Livraison {
     id: string;
-    adresse: string;
-    adresseRecupererCommande: string;
-    nomCommerce: string;
     enAttenteLivreur: boolean;
     estLivre: boolean;
-    nomClient: string;
-    numTelCommerce: string;
-    numTelClient: string;
+    livreur?: Livreur;
+    artisan: Artisan;
+    client: Client;
 }

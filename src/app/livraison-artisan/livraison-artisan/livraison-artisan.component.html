@@ -3,14 +3,13 @@
         <mat-card class="example-card">
             <mat-card-header>
                 <mat-card-title>Commande N°{{livraisonAttente.id}}</mat-card-title>
-                <mat-card-subtitle>{{livraisonAttente.artisan.nomCommerce}}</mat-card-subtitle>
+                <mat-card-subtitle>{{livraisonAttente.artisan.commerce}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <h2>Information sur la livraison</h2>
                 <ul>
-                    <li>Nom du commerce : {{livraisonAttente.artisan.nomCommerce}}</li>
-                    <li>Adresse du commerce : {{livraisonAttente.artisan.adresse}}</li>
-                    <li>Téléphone du commerce : {{livraisonAttente.artisan.numTel}}</li>
+                    <li>Nom du livreur : {{livraisonAttente.livreur.nom}}</li>
+                    <li>Téléphone du livreur : {{livraisonAttente.numTelLivreur}}</li>
                 </ul>
                 <hr>
                 <ul>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { TypeUtilisateur } from 'src/app/models/typeUtilisateur';
 import { Utilisateur } from 'src/app/models/utilisateur';
+import { Livreur } from 'src/app/models/livreur';
+import { Artisan } from 'src/app/models/artisan';
 
 @Component({
   selector: 'app-inscription',
@@ -15,7 +17,6 @@ export class InscriptionComponent implements OnInit {
     { nom: 'Livreur', value: '0' },
     { nom: 'Producteur/Artisan', value: '1' }
   ]
-  utilisateur: Utilisateur;
   rayonKM: string;
   selected = '';
   constructor(private formBuilder: FormBuilder, ) {
@@ -24,9 +25,11 @@ export class InscriptionComponent implements OnInit {
       prenom: '',
       email: '',
       password: '',
+      numeroTel: '',
       adresse: '',
       ville: '',
-      type: ''
+      type: '',
+      nomSociete: '',
     })
   }
 
@@ -38,22 +41,30 @@ export class InscriptionComponent implements OnInit {
 
   onSubmit(): void {
     this.inscriptionForm.value.type = this.selected;
-    if (this.inscriptionForm.value.type === 0) {
-      this.utilisateur.rayonLivraison = this.rayonKM;
-      this.utilisateur.nom = this.inscriptionForm.value.nom
-      this.utilisateur.prenom = this.inscriptionForm.value.prenom
-      this.utilisateur.email = this.inscriptionForm.value.email
-      this.utilisateur.password = this.inscriptionForm.value.password
-      this.utilisateur.adresse = this.inscriptionForm.value.adresse
-      this.utilisateur.ville = this.inscriptionForm.value.ville
+    console.log(this.inscriptionForm.value.type);
+    if (this.inscriptionForm.value.type === '0') {
+      let livreur: Livreur = new Livreur();
+      livreur.rayonLivraison = this.rayonKM;
+      livreur.nom = this.inscriptionForm.value.nom;
+      livreur.prenom = this.inscriptionForm.value.prenom;
+      livreur.email = this.inscriptionForm.value.email;
+      livreur.password = this.inscriptionForm.value.password;
+      livreur.adresse = this.inscriptionForm.value.adresse;
+      livreur.ville = this.inscriptionForm.value.ville;
+      console.log(livreur);
+      sessionStorage.setItem('type', '0');
+      console.log(localStorage.getItem('type'));
       // Appel route Back Livreur
     } else {
-      this.utilisateur.nom = this.inscriptionForm.value.nom
-      this.utilisateur.prenom = this.inscriptionForm.value.prenom
-      this.utilisateur.email = this.inscriptionForm.value.email
-      this.utilisateur.password = this.inscriptionForm.value.password
-      this.utilisateur.adresse = this.inscriptionForm.value.adresse
-      this.utilisateur.ville = this.inscriptionForm.value.ville
+      let artisan: Artisan = new Artisan();
+      artisan.nom = this.inscriptionForm.value.nom;
+      artisan.prenom = this.inscriptionForm.value.prenom;
+      artisan.email = this.inscriptionForm.value.email;
+      artisan.password = this.inscriptionForm.value.password;
+      artisan.adresse = this.inscriptionForm.value.adresse;
+      artisan.ville = this.inscriptionForm.value.ville;
+      artisan.nomCommerce = this.inscriptionForm.value.nomSociete;
+      console.log(artisan);
       // appel route back commercant
     }
   }

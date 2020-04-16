@@ -6,6 +6,7 @@ import { SellerComponent } from './seller/seller/seller.component';
 import { LoginComponent } from './login/login/login.component';
 import { InscriptionComponent } from './inscription/inscription/inscription.component';
 import { AuthGuard } from './services/auth.guard';
+import { CreateCommandComponent } from './create-command/create-command/create-command.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'inscription',
     component: InscriptionComponent
+  },
+  {
+    path: 'create-command',
+    component: CreateCommandComponent
   }
 ];
 

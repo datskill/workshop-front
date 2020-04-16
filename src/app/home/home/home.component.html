@@ -1,5 +1,5 @@
 <!-- TODO : NgIf si on est livreur ou artisan-->
-<div class="container" *ngIf="whoIsConnected === '0'">
+<div class="container">
     <div class="position" *ngIf="whoIsConnected === '0'">
         <div style="padding-bottom: 20px;">Livraison en attente d'un livreur</div>
         <div *ngFor="let livraison of listLivraisons; let index = index">
@@ -26,8 +26,8 @@
         <hr>
         <div style="padding-bottom: 20px;">Vos livraisons terminées</div>
         <div *ngFor="let livraison of listLivraisons; let index = index">
-            <app-livraison-attente *ngIf="livraison.estLivre" [livraisonAttente]="livraison">
-            </app-livraison-attente>
+            <app-livraison-artisan *ngIf="livraison.estLivre" [livraisonAttente]="livraison">
+            </app-livraison-artisan>
         </div>
     </div>
 </div>

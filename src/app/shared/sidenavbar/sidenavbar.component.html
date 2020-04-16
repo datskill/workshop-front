@@ -12,8 +12,8 @@
             <mat-nav-list>
                 <div class="position-nav" *ngIf="whichUser === UserType.ARTISAN">
                     <a mat-list-item routerLink="/home">Accueil</a>
-                    <a mat-list-item>Créer une commande</a>
-                    <a mat-list-item>Voir mes commandes</a>
+                    <a mat-list-item routerLink="/create-command">Créer une commande</a>
+                    <a mat-list-item routerLink="/home">Voir mes commandes</a>
                 </div>
                 <div class="position-nav" *ngIf="whichUser === UserType.LIVREUR">
                     <a mat-list-item routerLink="/home">Accueil</a>

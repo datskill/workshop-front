@@ -9,7 +9,7 @@
                 <h2>Information sur la livraison</h2>
                 <ul>
                     <li>Nom du livreur : {{livraisonAttente.livreur.nom}}</li>
-                    <li>Téléphone du livreur : {{livraisonAttente.numTelLivreur}}</li>
+                    <li>Téléphone du livreur : {{livraisonAttente.livreur.numTel}}</li>
                 </ul>
                 <hr>
                 <ul>
@@ -19,13 +19,6 @@
                 </ul>
             </mat-card-content>
             <mat-card-actions>
-                <div class="align">
-                    <button mat-raised-button color="primary" (click)="livrerCommande()"
-                        *ngIf="livraisonAttente.enAttenteLivreur">Je livre cette
-                        commande</button>
-                    <button mat-raised-button color="primary" (click)="livrerCommandeTermine()"
-                        *ngIf="!livraisonAttente.enAttenteLivreur">J'ai livré cette commande</button>
-                </div>
             </mat-card-actions>
         </mat-card>
 

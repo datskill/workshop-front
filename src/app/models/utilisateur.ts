@@ -1,10 +1,10 @@
 import { TypeUtilisateur } from './typeUtilisateur';
 
 export class Utilisateur {
-    nom: string;
-    prenom: string;
+    firstName: string;
+    lastName: string;
     email?: string;
-    password?: string;
-    adresse: string;
-    ville: string;
+    address: string;
+    city: string;
+    password?: string
 }

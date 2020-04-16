@@ -42,6 +42,7 @@ import { CreateCommandComponent } from './create-command/create-command/create-c
 import { SliderKmComponent } from './shared/slider-km/slider-km.component';
 import { LivraisonArtisanComponent } from './livraison-artisan/livraison-artisan/livraison-artisan.component';
 import { SidenavbarComponent } from './shared/sidenavbar/sidenavbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   exports: [
@@ -86,6 +87,7 @@ import { SidenavbarComponent } from './shared/sidenavbar/sidenavbar.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MatListModule,
     MatSidenavModule,
     MatIconModule,

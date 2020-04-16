@@ -3,6 +3,7 @@ import { Livraison } from 'src/app/models/livraison';
 import { Artisan } from 'src/app/models/artisan';
 import { Client } from 'src/app/models/client';
 import { UserType } from 'src/app/enums/typeUserEnum';
+import { Livreur } from 'src/app/models/livreur';
 
 @Component({
   selector: 'app-home',
@@ -28,16 +29,26 @@ export class HomeComponent implements OnInit {
     ville: 'Nimes',
     numTel: '09876543'
   }
+  livreur: Livreur = {
+    numTel: '098765',
+    adresse: '',
+    email: '',
+    nom: 'hugo',
+    password: '',
+    prenom: 'thomas',
+    rayonLivraison: '50',
+    ville: 'nimes'
+  }
   UserType = UserType;
   whoIsConnected: string;
   listLivraisons: Livraison[] = [
     //TODO : Recuperer via le Back
     {
       id: '1',
-      enAttenteLivreur: true, estLivre: false, artisan: this.artisan, client: this.client
+      enAttenteLivreur: true, estLivre: false, artisan: this.artisan, client: this.client, livreur: this.livreur
     },
     {
-      id: '2', enAttenteLivreur: true, estLivre: false, artisan: this.artisan, client: this.client
+      id: '2', enAttenteLivreur: true, estLivre: false, artisan: this.artisan, client: this.client, livreur: this.livreur
     }
   ]
   getIndexSelected: string;

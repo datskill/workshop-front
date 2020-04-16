@@ -5,6 +5,8 @@ import { Utilisateur } from 'src/app/models/utilisateur';
 import { Livreur } from 'src/app/models/livreur';
 import { Artisan } from 'src/app/models/artisan';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { InscriptionService } from 'src/app/services/inscription.service';
 
 @Component({
   selector: 'app-inscription',
@@ -20,7 +22,8 @@ export class InscriptionComponent implements OnInit {
   ]
   rayonKM: string;
   selected = '';
-  constructor(private formBuilder: FormBuilder, public router: Router) {
+  constructor(private formBuilder: FormBuilder, public router: Router, private httpClient: HttpClient,
+    private inscriptionService: InscriptionService) {
     this.inscriptionForm = this.formBuilder.group({
       nom: '',
       prenom: '',
@@ -45,14 +48,21 @@ export class InscriptionComponent implements OnInit {
     console.log(this.inscriptionForm.value.type);
     if (this.inscriptionForm.value.type === '0') {
       let livreur: Livreur = new Livreur();
-      livreur.rayonLivraison = this.rayonKM;
-      livreur.nom = this.inscriptionForm.value.nom;
-      livreur.prenom = this.inscriptionForm.value.prenom;
+      livreur.deliveryArea = this.rayonKM;
+      livreur.lastName = this.inscriptionForm.value.nom;
+      livreur.firstName = this.inscriptionForm.value.prenom;
       livreur.email = this.inscriptionForm.value.email;
       livreur.password = this.inscriptionForm.value.password;
-      livreur.adresse = this.inscriptionForm.value.adresse;
-      livreur.ville = this.inscriptionForm.value.ville;
+      livreur.address = this.inscriptionForm.value.adresse;
+      livreur.city = this.inscriptionForm.value.ville;
       console.log(livreur);
+      // const urlApi = 'http://localhost:3000/users';
+      // this.httpClient.post<Livreur>(urlApi, livreur).subscribe(value => {
+      //   console.log(value);
+      // })
+      this.inscriptionService.postData(livreur);
+      // console.log(this.httpClient.post(urlApi, livreur));
+
       // Appel route Back Livreur
     } else {
       let artisan: Artisan = new Artisan();

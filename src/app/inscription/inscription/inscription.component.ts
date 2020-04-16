@@ -4,6 +4,7 @@ import { TypeUtilisateur } from 'src/app/models/typeUtilisateur';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { Livreur } from 'src/app/models/livreur';
 import { Artisan } from 'src/app/models/artisan';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -19,7 +20,7 @@ export class InscriptionComponent implements OnInit {
   ]
   rayonKM: string;
   selected = '';
-  constructor(private formBuilder: FormBuilder, ) {
+  constructor(private formBuilder: FormBuilder, public router: Router) {
     this.inscriptionForm = this.formBuilder.group({
       nom: '',
       prenom: '',
@@ -52,8 +53,6 @@ export class InscriptionComponent implements OnInit {
       livreur.adresse = this.inscriptionForm.value.adresse;
       livreur.ville = this.inscriptionForm.value.ville;
       console.log(livreur);
-      sessionStorage.setItem('type', '0');
-      console.log(localStorage.getItem('type'));
       // Appel route Back Livreur
     } else {
       let artisan: Artisan = new Artisan();
@@ -67,5 +66,6 @@ export class InscriptionComponent implements OnInit {
       console.log(artisan);
       // appel route back commercant
     }
+    this.router.navigate(['/login']);
   }
 }

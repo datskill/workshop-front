@@ -26,10 +26,11 @@ export class CreateCommandComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.livraison.adresse = this.livraisonForm.value.adresse;
-    this.livraison.nomClient = this.livraisonForm.value.nomClient;
-    this.livraison.adresseRecupererCommande = this.livraisonForm.value.adresseRecupererCommande;
-    this.livraison.numTelCommerce = this.livraisonForm.value.numTelCommerce;
-    this.livraison.nomCommerce = this.livraisonForm.value.nomCommerce;
+    this.livraison.artisan.adresse = this.livraisonForm.value.adresse;
+    this.livraison.client.nom = this.livraisonForm.value.nomClient;
+    this.livraison.artisan.adresse = this.livraisonForm.value.adresseRecupererCommande;
+    this.livraison.artisan.numTel = this.livraisonForm.value.numTelCommerce;
+    this.livraison.artisan.nomCommerce = this.livraisonForm.value.nomCommerce;
+    this.livraison.client.numTel = this.livraisonForm.value.numTelClient;
   }
 }

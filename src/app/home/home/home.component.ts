@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Livraison } from 'src/app/models/livraison';
 import { Artisan } from 'src/app/models/artisan';
 import { Client } from 'src/app/models/client';
+import { UserType } from 'src/app/enums/typeUserEnum';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     ville: 'Nimes',
     numTel: '09876543'
   }
+  UserType = UserType;
   whoIsConnected: string;
   listLivraisons: Livraison[] = [
     //TODO : Recuperer via le Back
@@ -43,6 +45,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.whoIsConnected = sessionStorage.getItem('type');
+    console.log(this.whoIsConnected);
     // pas oublier de clear le storage à la deconnexion
   }
 

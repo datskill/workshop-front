@@ -5,25 +5,19 @@ import { ClientComponent } from './client/client/client.component';
 import { SellerComponent } from './seller/seller/seller.component';
 import { LoginComponent } from './login/login/login.component';
 import { InscriptionComponent } from './inscription/inscription/inscription.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
 
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
     component: LoginComponent
-  },
-  {
-    path: 'client',
-    component: ClientComponent
-  },
-  {
-    path: 'seller',
-    component: SellerComponent
   },
   {
     path: 'login',

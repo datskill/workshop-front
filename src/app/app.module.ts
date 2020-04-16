@@ -41,6 +41,7 @@ import { DialogLivraisonComponent } from './shared/dialog-livraison/dialog-livra
 import { CreateCommandComponent } from './create-command/create-command/create-command.component';
 import { SliderKmComponent } from './shared/slider-km/slider-km.component';
 import { LivraisonArtisanComponent } from './livraison-artisan/livraison-artisan/livraison-artisan.component';
+import { SidenavbarComponent } from './shared/sidenavbar/sidenavbar.component';
 
 @NgModule({
   exports: [
@@ -77,6 +78,7 @@ import { LivraisonArtisanComponent } from './livraison-artisan/livraison-artisan
     CreateCommandComponent,
     SliderKmComponent,
     LivraisonArtisanComponent,
+    SidenavbarComponent,
 
   ],
   entryComponents: [
@@ -85,6 +87,9 @@ import { LivraisonArtisanComponent } from './livraison-artisan/livraison-artisan
   imports: [
     BrowserModule,
     MatListModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule,
     MatDialogModule,
     MatSliderModule,
     FormsModule,

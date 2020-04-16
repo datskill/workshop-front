@@ -5,7 +5,6 @@
 }
 .example-card {
   max-width: 400px;
-  background-color: grey !important;
 }
 
 .position {
@@ -22,5 +21,5 @@
 }
 
 .style-link {
-    color: white;
+    color: black;
 }

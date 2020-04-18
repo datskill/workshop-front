@@ -1,12 +1,18 @@
-import { Livreur } from './livreur';
-import { Artisan } from './artisan';
-import { Client } from './client';
+import { Deliverer } from './livreur';
+import { Producer } from './producer';
 
 export class Livraison {
-    id: string;
-    enAttenteLivreur: boolean;
-    estLivre: boolean;
-    livreur?: Livreur;
-    artisan: Artisan;
-    client: Client;
+    _id?: string;
+    isPending?: boolean;
+    isDelivered?: boolean;
+    weight?: string;
+    collectionAdress?: string;
+    idProducer?: string;
+    idDeliverer?: string;
+    clientPhoneNumber?: string;
+    deliveryAddress?: string;
+    producer?: Producer;
+    deliverer?: Deliverer;
+    createdAt?: string;
+    updatedAt?: string;
 }

@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
+import { LoginService } from './login.service';
+import { Authentification } from '../models/authentification';
+import { HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +14,14 @@ export class AuthService {
   isLogged = false;
   listenerIsLogged = new BehaviorSubject<boolean>(this.isLogged);
   redirectUrl: string;
-  constructor() { }
+  constructor(private loginService: LoginService, private router: Router) {
+    if (this.redirectUrl && this.isLogged) {
+      this.router.navigate([this.redirectUrl]);
+    }
+  }
 
-  login(): Observable<boolean> {
-    return of(true).pipe(
-      delay(1000),
-      tap(val => this.isLogged = true)
-    );
+  login(authent: Authentification): any {
+    return this.loginService.postLogin(authent);
   }
 
   eventChange() {

@@ -24,7 +24,7 @@ export class SidenavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    sessionStorage.setItem('type', '0');
+    sessionStorage.setItem('type', '1');
     this.whichUser = sessionStorage.getItem('type');
     if (this.whichUser === UserType.LIVREUR) { console.log('toto'); }
     this.subscription = this.authService.listenerIsLogged.subscribe(value => {

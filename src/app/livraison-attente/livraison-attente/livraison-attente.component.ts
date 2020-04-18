@@ -2,7 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Livraison } from 'src/app/models/livraison';
 import { MatDialog } from '@angular/material';
 import { DialogLivraisonComponent } from 'src/app/shared/dialog-livraison/dialog-livraison.component';
-import { Livreur } from 'src/app/models/livreur';
+import { Deliverer } from 'src/app/models/livreur';
+import { InscriptionService } from 'src/app/services/inscription.service';
+import { CommandeService } from 'src/app/services/commande.service';
 @Component({
   selector: 'app-livraison-attente',
   templateUrl: './livraison-attente.component.html',
@@ -13,40 +15,38 @@ export class LivraisonAttenteComponent implements OnInit {
   @Output() emitIndex = new EventEmitter<string>();
   @Output() emitLivraison = new EventEmitter<Livraison>();
   @Input() index: string;
+  tempLivreur: Deliverer = new Deliverer();
 
-  constructor(public dialog: MatDialog) { }
-  livreur: Livreur = {
-    adresse: '45674',
-    email: 'zzz@zzzz',
-    nom: 'Lolo',
-    numTel: '0987654',
-    password: 'zrrrrr',
-    prenom: 'Lolo',
-    rayonLivraison: '50',
-    ville: 'Nimes'
-  }
+  constructor(public dialog: MatDialog, private inscriptionService: InscriptionService, private commandeService: CommandeService) { }
+
   ngOnInit() {
+    this.inscriptionService.getDeliverer(sessionStorage.getItem('user')).subscribe(value => {
+      if (value) {
+        this.tempLivreur = value;
+      }
+    });
   }
 
   livrerCommande(): void {
     this.emitIndex.emit(this.index);
-    this.livraisonAttente.enAttenteLivreur = false;
-    this.livraisonAttente.livreur = this.livreur;
+    this.livraisonAttente.isPending = false;
+    this.livraisonAttente.deliverer = new Deliverer();
+    this.livraisonAttente.deliverer = this.tempLivreur;
     this.emitLivraison.emit(this.livraisonAttente);
     const dialogRef = this.dialog.open(DialogLivraisonComponent, {
       width: '250px',
-      data: { name: this.livraisonAttente.id, estLivre: false }
+      data: { name: this.livraisonAttente._id, estLivre: false }
     });
     dialogRef.afterClosed().subscribe(result => {
     });
   }
   livrerCommandeTermine(): void {
     this.emitIndex.emit(this.index);
-    this.livraisonAttente.estLivre = true;
+    this.livraisonAttente.isDelivered = true;
     this.emitLivraison.emit(this.livraisonAttente);
     const dialogRef = this.dialog.open(DialogLivraisonComponent, {
       width: '250px',
-      data: { name: this.livraisonAttente.id, estLivre: true }
+      data: { name: this.livraisonAttente._id, estLivre: true }
     });
     dialogRef.afterClosed().subscribe(result => {
     });

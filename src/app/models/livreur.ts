@@ -1,6 +1,6 @@
 import { Utilisateur } from './utilisateur';
 
-export class Livreur implements Utilisateur {
+export class Deliverer implements Utilisateur {
     firstName: string;
     lastName: string;
     email: string;

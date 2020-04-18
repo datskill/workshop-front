@@ -20,9 +20,7 @@ export class LoginService {
     headers: this.httpHeaders
   };
 
-  postData(obj: Authentification) {
-    this.httpClient.post<Authentification>(this.urlApi, obj, this.options).subscribe(value => {
-
-    });
+  postLogin(obj: Authentification) {
+    return this.httpClient.post<any>(this.urlApi, obj, { observe: 'response' });
   }
 }

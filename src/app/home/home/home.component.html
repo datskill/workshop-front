@@ -1,33 +1,35 @@
 <!-- TODO : NgIf si on est livreur ou artisan-->
-<div class="container">
+<div class="container" *ngIf="isListeFull">
     <div class="position" *ngIf="whoIsConnected === '0'">
         <div style="padding-bottom: 20px;">Livraison en attente d'un livreur</div>
-        <div *ngFor="let livraison of listLivraisons; let index = index">
-            <app-livraison-attente *ngIf="livraison.enAttenteLivreur" [livraisonAttente]="livraison" [index]=index
+        <div *ngFor="let livraison of listeLivraison; let index = index">
+            <app-livraison-attente *ngIf="livraison.isPending" [livraisonAttente]="livraison" [index]=index
                 (emitLivraison)="getLivraison($event)" (emitIndex)="getIndex($event)">
             </app-livraison-attente>
         </div>
         <hr>
         <div style="padding-bottom: 20px;">Vos livraisons en cours</div>
-        <div *ngFor="let livraison of listLivraisons; let index = index">
-            <app-livraison-attente *ngIf="!livraison.enAttenteLivreur && !livraison.estLivre"
-                [livraisonAttente]="livraison" [index]=index (emitLivraison)="getLivraison($event)"
-                (emitIndex)="getIndex($event)">
+        <div *ngFor="let livraison of listeLivraison; let index = index">
+            <app-livraison-attente *ngIf="!livraison.isPending && !livraison.isDelivered" [livraisonAttente]="livraison"
+                [index]=index (emitLivraison)="getLivraison($event)" (emitIndex)="getIndex($event)">
             </app-livraison-attente>
         </div>
     </div>
     <!-- TODO : NgIf si on est livreur ou artisan-->
     <div class="position" *ngIf="whoIsConnected === '1'">
-        <div style="padding-bottom: 20px;">Vos livraisons en cours</div>
-        <div *ngFor="let livraison of listLivraisons; let index = index">
+        <div style="padding-bottom: 20px;">Vos commandes en cours</div>
+        <div *ngFor="let livraison of listeLivraison; let index = index">
             <app-livraison-artisan [livraisonAttente]="livraison">
             </app-livraison-artisan>
         </div>
         <hr>
-        <div style="padding-bottom: 20px;">Vos livraisons terminées</div>
-        <div *ngFor="let livraison of listLivraisons; let index = index">
-            <app-livraison-artisan *ngIf="livraison.estLivre" [livraisonAttente]="livraison">
+        <div style="padding-bottom: 20px;">Vos commandes terminées</div>
+        <div *ngFor="let livraison of listeLivraison; let index = index">
+            <app-livraison-artisan *ngIf="livraison.isDelivered" [livraisonAttente]="livraison">
             </app-livraison-artisan>
         </div>
     </div>
+</div>
+<div class="container" *ngIf="!isListeFull">
+    <p>Aucune livraison en cours</p>
 </div>

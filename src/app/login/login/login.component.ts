@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Authentification } from 'src/app/models/authentification';
 import { LoginService } from 'src/app/services/login.service';
+import { InscriptionService } from 'src/app/services/inscription.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm;
   authentification: Authentification = new Authentification();
   constructor(private formBuilder: FormBuilder, private authService: AuthService, public router: Router,
-    private loginService: LoginService) {
+    private loginService: LoginService, private inscriptionService: InscriptionService) {
     this.loginForm = this.formBuilder.group({
       email: '',
       password: ''
@@ -23,21 +24,27 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   onSubmit(): void {
-    console.log(this.loginForm.value);
     this.authentification.email = this.loginForm.value.email;
     this.authentification.password = this.loginForm.value.password;
-    this.loginService.postData(this.authentification)
-    this.authService.login().subscribe(() => {
-      const redirectUrl = '/home';
-      this.router.navigate([redirectUrl]);
-      this.authService.getValue();
+    this.authService.login(this.authentification).subscribe(value => {
+      console.log(value.body);
+      if (value.status === 200) {
+        console.log('toto');
+        const redirectUrl = '/home';
+        sessionStorage.setItem('type', value.body.type);
+        sessionStorage.setItem('user', value.body._id);
+        this.authService.isLogged = true;
+        this.router.navigate([redirectUrl]);
+        this.authService.getValue();
+      } else if (value.status === '403') {
+        //todo afficher erreur
+        const redirectUrl = '/login';
+        this.router.navigate([redirectUrl]);
+      }
     })
-    sessionStorage.clear();
-    sessionStorage.setItem('type', '0');
-    console.log(sessionStorage.getItem('type'));
-    // Dans la réponse du back, enregistrer le type d'user dans le sessionStorage
   }
 }

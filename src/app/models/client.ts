@@ -1,9 +1,7 @@
-import { Utilisateur } from './utilisateur';
-
-export class Client implements Utilisateur {
-    nom: string;
-    prenom: string;
-    adresse: string;
-    ville: string;
-    numTel: string;
+export class Client {
+    firstName: string;
+    lastName: string;
+    address: string;
+    city: string;
+    phoneNumber: string;
 }

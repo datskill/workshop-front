@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Livraison } from 'src/app/models/livraison';
 import { FormBuilder } from '@angular/forms';
+import { CreateCommandeService } from 'src/app/services/create-commande.service';
 
 @Component({
   selector: 'app-create-command',
@@ -9,9 +10,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class CreateCommandComponent implements OnInit {
 
-  livraison: Livraison;
+  livraison: Livraison = new Livraison();
   livraisonForm;
-  constructor(private formBuilder: FormBuilder, ) {
+  constructor(private formBuilder: FormBuilder, private createCommandeService: CreateCommandeService) {
     this.livraisonForm = this.formBuilder.group({
       adresse: '',
       adresseRecupererCommande: '',
@@ -19,18 +20,23 @@ export class CreateCommandComponent implements OnInit {
       nomClient: '',
       numTelCommerce: '',
       numTelClient: '',
+      weight: '',
     })
   }
 
   ngOnInit() {
+    console.log(sessionStorage.getItem('user'));
   }
 
   onSubmit(): void {
-    this.livraison.artisan.adresse = this.livraisonForm.value.adresse;
-    this.livraison.client.nom = this.livraisonForm.value.nomClient;
-    this.livraison.artisan.adresse = this.livraisonForm.value.adresseRecupererCommande;
-    this.livraison.artisan.numTel = this.livraisonForm.value.numTelCommerce;
-    this.livraison.artisan.nomCommerce = this.livraisonForm.value.nomCommerce;
-    this.livraison.client.numTel = this.livraisonForm.value.numTelClient;
+    this.livraison.clientPhoneNumber = this.livraisonForm.value.numTelClient;
+    this.livraison.collectionAdress = this.livraisonForm.value.adresseRecupererCommande;
+    this.livraison.deliveryAddress = this.livraisonForm.value.adresse;
+    this.livraison.idProducer = sessionStorage.getItem('user').toString();
+    this.livraison.weight = this.livraisonForm.value.weight;
+    this.createCommandeService.postCreateLivraison(this.livraison).subscribe(value => {
+      console.log(value);
+    })
   }
+
 }

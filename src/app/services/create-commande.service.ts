@@ -9,7 +9,7 @@ export class CreateCommandeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private urlApi = 'http://localhost:3000/login';
+  private urlApi = 'http://localhost:3000/deliveries/';
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache'
@@ -18,9 +18,7 @@ export class CreateCommandeService {
     headers: this.httpHeaders
   };
 
-  postData(obj: Livraison) {
-    this.httpClient.post<Livraison>(this.urlApi, obj, this.options).subscribe(value => {
-      if (value) { console.log('appel ok') } else { console.log("appek ko") }
-    });
+  postCreateLivraison(obj: Livraison) {
+    return this.httpClient.post<Livraison>(this.urlApi, obj, this.options);
   }
 }

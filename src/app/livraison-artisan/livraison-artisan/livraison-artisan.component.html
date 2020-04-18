@@ -6,7 +6,7 @@
                 <mat-card-subtitle>{{livraisonAttente.producer.companyName}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <h2>Information sur la livraison</h2>
+                <h2>Informations sur la livraison</h2>
                 <ul *ngIf="!livraisonAttente.isPending">
                     <li>Nom du livreur : {{livraisonAttente.deliverer.lastName}}</li>
                     <li>Téléphone du livreur : {{livraisonAttente.deliverer.phoneNumber}}</li>
@@ -14,7 +14,7 @@
                 <p *ngIf="livraisonAttente.isPending">Aucun livreur n'a accepté votre commande pour le moment</p>
                 <hr>
                 <ul>
-                    <!-- <li>Nom du client : {{livraisonAttente.}}</li> -->
+                    <li>Nom du client : {{livraisonAttente.clientName}}</li>
                     <li>Adresse du client : {{livraisonAttente.deliveryAddress}}</li>
                     <li>Numéro du client : {{livraisonAttente.clientPhoneNumber}}</li>
                 </ul>

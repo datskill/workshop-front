@@ -12,8 +12,6 @@ export class LivraisonArtisanComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.warn('ytoto');
-    console.warn(this.livraisonAttente);
   }
 
 }

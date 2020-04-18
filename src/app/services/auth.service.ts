@@ -15,7 +15,7 @@ export class AuthService {
   listenerIsLogged = new BehaviorSubject<boolean>(this.isLogged);
   redirectUrl: string;
   constructor(private loginService: LoginService, private router: Router) {
-    if (this.redirectUrl && this.isLogged) {
+    if ((this.redirectUrl && this.isLogged) || (this.redirectUrl && sessionStorage.getItem('logged') === 'true')) {
       this.router.navigate([this.redirectUrl]);
     }
   }
@@ -34,7 +34,9 @@ export class AuthService {
 
   logout() {
     this.isLogged = false;
+    this.getValue();
     sessionStorage.clear();
+    this.router.navigate(['/login'])
   }
 
 

@@ -1,6 +1,10 @@
 <h1 mat-dialog-title>Commande N°{{data.name}}</h1>
 <div mat-dialog-content>
-    <p *ngIf="!data.estLivre">Livraison accepté ! Bonne route</p>
+    <div *ngIf="!data.estLivre">
+        <p>Livraison accepté ! Bonne route</p>
+        <p>N'oubliez pas de remplir une attestion de déplacement ! </p>
+        <a class="style-link" href="https://media.interieur.gouv.fr/deplacement-covid-19/">Attestation COVID-19</a>
+    </div>
     <p *ngIf="data.estLivre">Livraison effectué ! Merci</p>
 
 </div>

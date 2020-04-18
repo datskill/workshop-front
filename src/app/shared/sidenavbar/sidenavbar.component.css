@@ -7,6 +7,9 @@
   left: 0;
   right: 0;
 }
+.example-spacer {
+  flex: 1 1 auto;
+}
 
 .position-nav {
     margin: 10px;
@@ -16,7 +19,7 @@
     width: 100%;
 }
 .example-is-mobile .example-toolbar {
-  position: fixed;
+  position: fixed !important;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
   z-index: 2;
 }

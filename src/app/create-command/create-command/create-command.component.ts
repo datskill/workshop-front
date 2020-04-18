@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Livraison } from 'src/app/models/livraison';
 import { FormBuilder } from '@angular/forms';
 import { CreateCommandeService } from 'src/app/services/create-commande.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-command',
@@ -12,7 +13,7 @@ export class CreateCommandComponent implements OnInit {
 
   livraison: Livraison = new Livraison();
   livraisonForm;
-  constructor(private formBuilder: FormBuilder, private createCommandeService: CreateCommandeService) {
+  constructor(private formBuilder: FormBuilder, private createCommandeService: CreateCommandeService, private router: Router) {
     this.livraisonForm = this.formBuilder.group({
       adresse: '',
       adresseRecupererCommande: '',
@@ -34,8 +35,9 @@ export class CreateCommandComponent implements OnInit {
     this.livraison.deliveryAddress = this.livraisonForm.value.adresse;
     this.livraison.idProducer = sessionStorage.getItem('user').toString();
     this.livraison.weight = this.livraisonForm.value.weight;
+    this.livraison.clientName = this.livraisonForm.value.nomClient;
     this.createCommandeService.postCreateLivraison(this.livraison).subscribe(value => {
-      console.log(value);
+      this.router.navigate(['/home'])
     })
   }
 

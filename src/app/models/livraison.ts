@@ -9,6 +9,7 @@ export class Livraison {
     collectionAdress?: string;
     idProducer?: string;
     idDeliverer?: string;
+    clientName?: string;
     clientPhoneNumber?: string;
     deliveryAddress?: string;
     producer?: Producer;

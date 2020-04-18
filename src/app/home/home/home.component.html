@@ -19,7 +19,7 @@
     <div class="position" *ngIf="whoIsConnected === '1'">
         <div style="padding-bottom: 20px;">Vos commandes en cours</div>
         <div *ngFor="let livraison of listeLivraison; let index = index">
-            <app-livraison-artisan [livraisonAttente]="livraison">
+            <app-livraison-artisan [livraisonAttente]="livraison" *ngIf="!livraison.isDelivered">
             </app-livraison-artisan>
         </div>
         <hr>

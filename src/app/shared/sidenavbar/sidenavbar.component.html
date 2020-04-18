@@ -4,6 +4,10 @@
             <mat-icon>menu</mat-icon>
         </button>
         <h1 class="example-app-name">PaP</h1>
+        <span class="example-spacer"></span>
+        <button *ngIf="isLogged" mat-icon-button (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>
+        </button>
     </mat-toolbar>
 
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
@@ -24,7 +28,7 @@
             </mat-nav-list>
         </mat-sidenav>
 
-        <mat-sidenav-content style=" background-color: rgba(0,0,0,.14);">
+        <mat-sidenav-content style=" background-color:white;">
             <div class="position-color">
                 <router-outlet></router-outlet>
             </div>

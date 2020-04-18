@@ -22,16 +22,19 @@ export class HomeComponent implements OnInit {
   constructor(private commandeService: CommandeService) { }
 
   ngOnInit() {
+    this.whoIsConnected = sessionStorage.getItem('type');
     this.commandeService.getAllDelivery().subscribe(value => {
       if (value) {
         value.forEach(element => {
-          if (element.producer._id === sessionStorage.getItem('user'))
+          if (this.whoIsConnected === '1' && element.producer._id === sessionStorage.getItem('user')) {
             this.listeLivraison.push(element);
+          } else if (this.whoIsConnected === '0') {
+            this.listeLivraison.push(element);
+          }
         });
       }
     });
     this.isListeFull = true;
-    this.whoIsConnected = sessionStorage.getItem('type');
 
   }
 

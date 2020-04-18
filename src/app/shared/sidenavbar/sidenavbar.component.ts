@@ -13,24 +13,42 @@ export class SidenavbarComponent implements OnInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-  whichUser = '0';
+  whichUser: string;
   UserType = UserType
   isLogged: boolean;
   subscription: Subscription;
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private authService: AuthService) {
+  constructor(public changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private authService: AuthService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit() {
-    sessionStorage.setItem('type', '1');
+    if (sessionStorage.getItem('logged') == 'true') {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
     this.whichUser = sessionStorage.getItem('type');
-    if (this.whichUser === UserType.LIVREUR) { console.log('toto'); }
+    console.log(this.whichUser);
     this.subscription = this.authService.listenerIsLogged.subscribe(value => {
+      console.log(value);
       this.isLogged = value;
+      this.whichUser = sessionStorage.getItem('type');
+      if (sessionStorage.getItem('logged') === 'true') {
+        this.isLogged = true;
+      } else {
+        this.isLogged = false;
+      }
     })
     console.log(this.isLogged);
+  }
+
+
+
+  logout(): void {
+    this.authService.logout();
+    this.isLogged = false;
   }
 
   ngOnDestroy(): void {

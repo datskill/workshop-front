@@ -31,12 +31,11 @@ export class LoginComponent implements OnInit {
     this.authentification.email = this.loginForm.value.email;
     this.authentification.password = this.loginForm.value.password;
     this.authService.login(this.authentification).subscribe(value => {
-      console.log(value.body);
       if (value.status === 200) {
-        console.log('toto');
         const redirectUrl = '/home';
         sessionStorage.setItem('type', value.body.type);
         sessionStorage.setItem('user', value.body._id);
+        sessionStorage.setItem('logged', 'true');
         this.authService.isLogged = true;
         this.router.navigate([redirectUrl]);
         this.authService.getValue();

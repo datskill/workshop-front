@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Attention !</h1>
+<div mat-dialog-content>
+    <div>
+        <p>Voulez-vous supprimer cette commande ? </p>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Non</button>
+    <button mat-button (click)="suppr()" [mat-dialog-close]="">Oui</button>
+</div>

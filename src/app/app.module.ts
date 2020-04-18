@@ -43,10 +43,10 @@ import { SliderKmComponent } from './shared/slider-km/slider-km.component';
 import { LivraisonArtisanComponent } from './livraison-artisan/livraison-artisan/livraison-artisan.component';
 import { SidenavbarComponent } from './shared/sidenavbar/sidenavbar.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DialogErrorComponent } from './shared/dialog-error/dialog-error.component';
 import { GlobalErrorHandler } from './services/global-error.service';
 import { ServerErrorInterceptor } from './services/error-server.service';
 import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
+import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.component';
 
 @NgModule({
   exports: [
@@ -84,12 +84,13 @@ import { CommandeDoneComponent } from './livraison-done/commande-done/commande-d
     SliderKmComponent,
     LivraisonArtisanComponent,
     SidenavbarComponent,
-    DialogErrorComponent,
     CommandeDoneComponent,
+    DialogSupprComponent,
 
   ],
   entryComponents: [
-    DialogLivraisonComponent
+    DialogLivraisonComponent,
+    DialogSupprComponent
   ],
   imports: [
     BrowserModule,

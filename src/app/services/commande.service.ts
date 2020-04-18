@@ -30,4 +30,7 @@ export class CommandeService {
   updateDelivery(delivery: Livraison) {
     return this.httpClient.put<Livraison>(this.urlApi + delivery._id, delivery);
   }
+  deleteDelivery(id: string) {
+    return this.httpClient.delete<Livraison>(this.urlApi + id);
+  }
 }

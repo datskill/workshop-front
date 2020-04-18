@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login/login.component';
 import { InscriptionComponent } from './inscription/inscription/inscription.component';
 import { AuthGuard } from './services/auth.guard';
 import { CreateCommandComponent } from './create-command/create-command/create-command.component';
+import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'create-command',
     component: CreateCommandComponent
+  },
+  {
+    path: 'archive-commande',
+    component: CommandeDoneComponent
   }
 ];
 

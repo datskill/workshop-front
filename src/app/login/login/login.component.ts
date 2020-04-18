@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Authentification } from 'src/app/models/authentification';
 import { LoginService } from 'src/app/services/login.service';
 import { InscriptionService } from 'src/app/services/inscription.service';
+import { MatDialog } from '@angular/material';
+import { DialogErrorComponent } from 'src/app/shared/dialog-error/dialog-error.component';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +15,10 @@ import { InscriptionService } from 'src/app/services/inscription.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm;
+  loginForm
   authentification: Authentification = new Authentification();
   constructor(private formBuilder: FormBuilder, private authService: AuthService, public router: Router,
-    private loginService: LoginService, private inscriptionService: InscriptionService) {
+    private loginService: LoginService, private inscriptionService: InscriptionService, public dialog: MatDialog) {
     this.loginForm = this.formBuilder.group({
       email: '',
       password: ''
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.authentification.email = this.loginForm.value.email;
     this.authentification.password = this.loginForm.value.password;
     this.authService.login(this.authentification).subscribe(value => {
+      console.log(value);
       if (value.status === 200) {
         const redirectUrl = '/home';
         sessionStorage.setItem('type', value.body.type);
@@ -39,10 +42,16 @@ export class LoginComponent implements OnInit {
         this.authService.isLogged = true;
         this.router.navigate([redirectUrl]);
         this.authService.getValue();
-      } else if (value.status === '403') {
-        //todo afficher erreur
-        const redirectUrl = '/login';
-        this.router.navigate([redirectUrl]);
+      } else {
+        console.log('lel');
+        const dialogRef = this.dialog.open(DialogErrorComponent, {
+          width: '250px',
+          data: {}
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          this.loginForm.reset();
+          this.router.navigate(['/login']);
+        });
       }
     })
   }

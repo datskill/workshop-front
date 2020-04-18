@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +42,11 @@ import { CreateCommandComponent } from './create-command/create-command/create-c
 import { SliderKmComponent } from './shared/slider-km/slider-km.component';
 import { LivraisonArtisanComponent } from './livraison-artisan/livraison-artisan/livraison-artisan.component';
 import { SidenavbarComponent } from './shared/sidenavbar/sidenavbar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DialogErrorComponent } from './shared/dialog-error/dialog-error.component';
+import { GlobalErrorHandler } from './services/global-error.service';
+import { ServerErrorInterceptor } from './services/error-server.service';
+import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
 
 @NgModule({
   exports: [
@@ -65,7 +69,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTooltipModule,
     MatSidenavModule,
     MatInputModule,
-    DialogLivraisonComponent
+    DialogLivraisonComponent,
   ],
   declarations: [
     AppComponent,
@@ -80,6 +84,8 @@ import { HttpClientModule } from '@angular/common/http';
     SliderKmComponent,
     LivraisonArtisanComponent,
     SidenavbarComponent,
+    DialogErrorComponent,
+    CommandeDoneComponent,
 
   ],
   entryComponents: [
@@ -94,6 +100,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatDialogModule,
     MatSliderModule,
+    MatSnackBarModule,
+    MatGridListModule,
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
@@ -104,7 +112,8 @@ import { HttpClientModule } from '@angular/common/http';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler },
+  { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

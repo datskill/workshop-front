@@ -9,15 +9,16 @@
                 <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit(inscriptionForm.value)">
                     <mat-form-field class="example-full-width">
                         <mat-label>Nom</mat-label>
-                        <input matInput formControlName="nom">
+                        <input matInput formControlName="nom" type="text">
                     </mat-form-field>
                     <mat-form-field class="example-full-width">
                         <mat-label>Prénom</mat-label>
-                        <input matInput formControlName="prenom">
+                        <input matInput formControlName="prenom" type="text">
                     </mat-form-field>
                     <mat-form-field class="example-full-width">
                         <mat-label>Email</mat-label>
-                        <input matInput formControlName="email">
+                        <input matInput formControlName="email" type="email"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                     </mat-form-field>
                     <mat-form-field class="example-full-width">
                         <mat-label>Mot de passe</mat-label>
@@ -55,9 +56,9 @@
                     </div>
                     <div style="padding-top: 10px;">
                         <button mat-raised-button color="primary">Valider</button>
+                        <a class="position-link" routerLink='/login' href="#">Retourner à la connexion</a>
                     </div>
                 </form>
-
             </mat-card-content>
         </mat-card>
     </div>

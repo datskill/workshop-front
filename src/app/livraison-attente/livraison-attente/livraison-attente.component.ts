@@ -16,6 +16,7 @@ export class LivraisonAttenteComponent implements OnInit {
   @Output() emitLivraison = new EventEmitter<Livraison>();
   @Input() index: string;
   tempLivreur: Deliverer = new Deliverer();
+  newId: string;
 
   constructor(public dialog: MatDialog, private inscriptionService: InscriptionService, private commandeService: CommandeService) { }
 
@@ -25,6 +26,7 @@ export class LivraisonAttenteComponent implements OnInit {
         this.tempLivreur = value;
       }
     });
+    this.newId = this.livraisonAttente._id.slice(0, 3);
   }
 
   livrerCommande(): void {
@@ -34,8 +36,8 @@ export class LivraisonAttenteComponent implements OnInit {
     this.livraisonAttente.deliverer = this.tempLivreur;
     this.emitLivraison.emit(this.livraisonAttente);
     const dialogRef = this.dialog.open(DialogLivraisonComponent, {
-      width: '250px',
-      data: { name: this.livraisonAttente._id, estLivre: false }
+      width: '500px',
+      data: { name: this.newId, estLivre: false }
     });
     dialogRef.afterClosed().subscribe(result => {
     });
@@ -45,8 +47,8 @@ export class LivraisonAttenteComponent implements OnInit {
     this.livraisonAttente.isDelivered = true;
     this.emitLivraison.emit(this.livraisonAttente);
     const dialogRef = this.dialog.open(DialogLivraisonComponent, {
-      width: '250px',
-      data: { name: this.livraisonAttente._id, estLivre: true }
+      width: '500px',
+      data: { name: this.newId, estLivre: true }
     });
     dialogRef.afterClosed().subscribe(result => {
     });

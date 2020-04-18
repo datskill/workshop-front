@@ -1,3 +1,8 @@
+.item {
+
+    color:black;
+}
+
 .container {
     display: flex;
     height: 100%;
@@ -9,13 +14,8 @@
 
 .position {
     margin: auto;
-    margin-bottom: 20px;
+    margin-top: 25px;
 }
 .align {
     text-align: center;
-}
-
-.style-icon {
-    color: red;
-    /* padding-left: 175px; */
 }

@@ -22,12 +22,6 @@
             <app-livraison-artisan [livraisonAttente]="livraison" *ngIf="!livraison.isDelivered">
             </app-livraison-artisan>
         </div>
-        <hr>
-        <div style="padding-bottom: 20px;">Vos commandes terminées</div>
-        <div *ngFor="let livraison of listeLivraison; let index = index">
-            <app-livraison-artisan *ngIf="livraison.isDelivered" [livraisonAttente]="livraison">
-            </app-livraison-artisan>
-        </div>
     </div>
 </div>
 <div class="container" *ngIf="!isListeFull">

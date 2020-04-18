@@ -51,6 +51,10 @@ export class SidenavbarComponent implements OnInit, OnDestroy {
     this.isLogged = false;
   }
 
+  toggle(snav: any) {
+    console.log('toto');
+    snav.toggle();
+  }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
     this.subscription.unsubscribe();

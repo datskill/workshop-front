@@ -19,3 +19,8 @@
 .example-full-width {
   width: 100%;
 }
+.position-link {
+  float: right;
+  color: black;
+  padding-top: 10px;
+}

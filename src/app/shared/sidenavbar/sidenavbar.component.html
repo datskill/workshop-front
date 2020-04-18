@@ -1,6 +1,6 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
     <mat-toolbar color="primary" class="example-toolbar">
-        <button mat-icon-button (click)="snav.toggle()" *ngIf="isLogged">
+        <button mat-icon-button (click)="toggle(snav)" *ngIf="isLogged">
             <mat-icon>menu</mat-icon>
         </button>
         <h1 class="example-app-name">PaP</h1>
@@ -15,14 +15,17 @@
             fixedTopGap="56">
             <mat-nav-list>
                 <div class="position-nav" *ngIf="whichUser === UserType.ARTISAN">
-                    <a mat-list-item routerLink="/home">Accueil</a>
-                    <a mat-list-item routerLink="/create-command">Créer une commande</a>
-                    <a mat-list-item routerLink="/home">Voir mes commandes</a>
+                    <a mat-list-item routerLink="/home" (click)="toggle(snav)">Accueil</a>
+                    <a mat-list-item routerLink="/create-command" (click)="toggle(snav)">Créer une commande</a>
+                    <a mat-list-item routerLink="/home" (click)="toggle(snav)">Voir mes commandes</a>
+                    <a mat-list-item routerLink="/archive-commande" (click)="toggle(snav)">Voir mes commandes
+                        terminées</a>
+
                 </div>
                 <div class="position-nav" *ngIf="whichUser === UserType.LIVREUR">
-                    <a mat-list-item routerLink="/home">Accueil</a>
-                    <a mat-list-item routerLink="/home">Voir toutes les livraisons</a>
-                    <a mat-list-item>Votre trajet</a>
+                    <a mat-list-item routerLink="/home" (click)="toggle(snav)">Accueil</a>
+                    <a mat-list-item routerLink="/home" (click)="toggle(snav)">Voir toutes les livraisons</a>
+                    <a mat-list-item (click)="toggle(snav)">Votre trajet</a>
                 </div>
                 <!-- <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a> -->
             </mat-nav-list>

@@ -26,10 +26,6 @@ export class LivraisonArtisanComponent implements OnInit {
       data: { id: this.livraisonAttente._id }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
     });
-    // this.commandeService.deleteDelivery(this.livraisonAttente._id).subscribe(value => {
-    //   location.reload();
-    // });
   }
 }

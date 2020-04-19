@@ -30,9 +30,7 @@ export class SidenavbarComponent implements OnInit, OnDestroy {
       this.isLogged = false;
     }
     this.whichUser = sessionStorage.getItem('type');
-    console.log(this.whichUser);
     this.subscription = this.authService.listenerIsLogged.subscribe(value => {
-      console.log(value);
       this.isLogged = value;
       this.whichUser = sessionStorage.getItem('type');
       if (sessionStorage.getItem('logged') === 'true') {
@@ -41,7 +39,6 @@ export class SidenavbarComponent implements OnInit, OnDestroy {
         this.isLogged = false;
       }
     })
-    console.log(this.isLogged);
   }
 
 
@@ -52,7 +49,6 @@ export class SidenavbarComponent implements OnInit, OnDestroy {
   }
 
   toggle(snav: any) {
-    console.log('toto');
     snav.toggle();
   }
   ngOnDestroy(): void {

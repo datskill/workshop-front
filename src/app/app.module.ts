@@ -47,6 +47,7 @@ import { GlobalErrorHandler } from './services/global-error.service';
 import { ServerErrorInterceptor } from './services/error-server.service';
 import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
 import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.component';
+import { AccueilComponent } from './accueil/accueil/accueil.component';
 
 @NgModule({
   exports: [
@@ -86,6 +87,7 @@ import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.compone
     SidenavbarComponent,
     CommandeDoneComponent,
     DialogSupprComponent,
+    AccueilComponent,
 
   ],
   entryComponents: [

@@ -25,7 +25,7 @@ export class CommandeService {
   }
 
   getOneDeliver(id: string) {
-    return this.httpClient.get<Livraison>(this.urlApi + ':' + id, this.options);
+    return this.httpClient.get<Livraison>(this.urlApi + id, this.options);
 
   }
   updateDelivery(delivery: Livraison) {

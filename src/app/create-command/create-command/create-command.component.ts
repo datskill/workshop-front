@@ -25,8 +25,7 @@ export class CreateCommandComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onSubmit(formValue: any): void {
     this.livraison.clientPhoneNumber = this.livraisonForm.value.numTelClient;

@@ -27,6 +27,8 @@
                         commande</button>
                     <button mat-raised-button color="primary" (click)="livrerCommandeTermine()"
                         *ngIf="!livraisonAttente.isPending">J'ai livré cette commande</button>
+                    <button mat-raised-button color="primary" routerLink='/map' *ngIf="!livraisonAttente.isPending">Mon
+                        trajet</button>
                 </div>
             </mat-card-actions>
         </mat-card>

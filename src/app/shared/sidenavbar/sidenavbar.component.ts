@@ -17,6 +17,7 @@ export class SidenavbarComponent implements OnInit, OnDestroy {
   UserType = UserType
   isLogged: boolean;
   subscription: Subscription;
+  email: string
   constructor(public changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private authService: AuthService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -35,6 +36,8 @@ export class SidenavbarComponent implements OnInit, OnDestroy {
       this.whichUser = sessionStorage.getItem('type');
       if (sessionStorage.getItem('logged') === 'true') {
         this.isLogged = true;
+        this.email = sessionStorage.getItem('name')
+
       } else {
         this.isLogged = false;
       }

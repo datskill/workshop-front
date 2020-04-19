@@ -29,7 +29,7 @@ export class CreateCommandComponent implements OnInit {
     console.log(sessionStorage.getItem('user'));
   }
 
-  onSubmit(): void {
+  onSubmit(formValue: any): void {
     this.livraison.clientPhoneNumber = this.livraisonForm.value.numTelClient;
     this.livraison.collectionAdress = this.livraisonForm.value.adresseRecupererCommande;
     this.livraison.deliveryAddress = this.livraisonForm.value.adresse;

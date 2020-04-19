@@ -11,7 +11,7 @@ export class DialogLivraisonComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogLivraisonComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Livraison) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
 
   ngOnInit() {

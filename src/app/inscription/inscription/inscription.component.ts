@@ -43,7 +43,7 @@ export class InscriptionComponent implements OnInit {
     this.rayonKM = event
   }
 
-  onSubmit(): void {
+  onSubmit(formValue: any): void {
     // Appel route Back Livreur
     this.inscriptionForm.value.type = this.selected;
     console.log(this.inscriptionForm.value.type);

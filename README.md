@@ -13,7 +13,7 @@ Notre application permet aux producteurs désirant vendre et livrer ses clients 
 
 ## Documentations
 
-Lien vers la [Documentation technique](/docs/tech.md)
+Lien vers la [Documentation technique](https://github.com/datskill/workshop-front/blob/master/docs/res/tech.md)
 
 ## License
 

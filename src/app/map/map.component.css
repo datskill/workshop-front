@@ -1,0 +1,36 @@
+#map {
+    height: 85%;
+    width: 85%;
+   }
+
+.mapitinirary{
+    width: 85%;
+    height: 85%;
+    margin: auto;
+    margin-top: 10px;
+    background-color: #d7d7d7;
+}
+
+.center{
+    display: flex;
+   justify-content: center;
+    align-items: center; 
+}
+
+
+.example-viewport {
+    height: 85%;
+    width: 85%;
+    margin: auto;
+  }
+  
+  .example-item {
+    height: auto;
+  }
+
+  .mat-raised-button{
+      background-color: #4253af;
+      color: white;
+  }
+
+  

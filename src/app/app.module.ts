@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login/login.component';
 import { HomeComponent } from './home/home/home.component';
 import { SellerComponent } from './seller/seller/seller.component';
 import { ClientComponent } from './client/client/client.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SelectAutocompleteModule } from 'mat-select-autocomplete';
 import {
   MatToolbarModule,
@@ -32,6 +33,7 @@ import {
   MatInput,
   MatDialogModule,
   MatSliderModule,
+  
 
 } from '@angular/material';
 import { InscriptionComponent } from './inscription/inscription/inscription.component';
@@ -47,9 +49,12 @@ import { GlobalErrorHandler } from './services/global-error.service';
 import { ServerErrorInterceptor } from './services/error-server.service';
 import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
 import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.component';
+import { MapComponent } from './map/map.component';
+import { GeocodeService } from './services/geocode.service';
 
 @NgModule({
   exports: [
+    ScrollingModule,
     MatPaginatorModule,
     MatToolbarModule,
     MatCardModule,
@@ -69,7 +74,7 @@ import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.compone
     MatTooltipModule,
     MatSidenavModule,
     MatInputModule,
-    DialogLivraisonComponent,
+    DialogLivraisonComponent
   ],
   declarations: [
     AppComponent,
@@ -86,6 +91,7 @@ import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.compone
     SidenavbarComponent,
     CommandeDoneComponent,
     DialogSupprComponent,
+    MapComponent
 
   ],
   entryComponents: [
@@ -93,6 +99,7 @@ import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.compone
     DialogSupprComponent
   ],
   imports: [
+    ScrollingModule,
     BrowserModule,
     HttpClientModule,
     MatListModule,
@@ -113,7 +120,7 @@ import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.compone
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule
   ],
-  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler },
+  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }, GeocodeService,
   { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

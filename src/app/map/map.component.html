@@ -1,0 +1,33 @@
+<mat-card class="mapitinirary">
+ 
+    <mat-grid-list cols="2">
+        <mat-grid-tile>
+
+            <div #mapContainer id="map"></div>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <cdk-virtual-scroll-viewport itemSize="5" class="example-viewport">
+                <mat-list #shoes>
+                    <mat-list *ngFor="let d of Deliveries">
+                        <mat-card>
+                            <mat-card-header class="center">
+                                <mat-card-title>Livraison {{d.clientName}}</mat-card-title>
+                                <mat-card-subtitle class="center">Client {{d.clientPhoneNumber}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content class="center">
+                              adresse: {{d.deliveryAddress}}
+                            </mat-card-content>
+                            <mat-card-actions  class="center">
+                                 <button (click)="livrerCommandeTermine(d)" mat-raised-button> Valider</button>
+                                 <!-- <button (click)="getC(d.deliveryAddress)" mat-raised-button> Valider</button> -->
+                            </mat-card-actions>
+                        </mat-card>
+                    </mat-list>
+                </mat-list>
+            </cdk-virtual-scroll-viewport>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</mat-card>

@@ -1,27 +1,20 @@
-# WorkshopFront
+<p align="center">
+  <a href="" target="blank"><img src="../master/docs/res/pap_logo.png" width="320" alt="Pap Logo" /></a>
+</p>
+  
+## Description
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+L'application "**Producteur à Particulier**" permet la mise en relation entres producteurs et livreurs afin de pouvoir délivrer les commandes aux clients.
 
-## Development server
+L'objectif est de faciliter le recours aux produits locaux, notamment dans les villes : seulement les producteurs n'ont pas toujours les moyens (financiers, logistiques, etc..)
+pour mettre en place un système de livraison aux clients particuliers.
 
-Run `http-server -p 8080 -c-1 dist/workshop-front` for a dev server. Navigate to `http://127.0.0.1:8080`. The app will automatically reload if you change any of the source files.
+Notre application permet aux producteurs désirant vendre et livrer ses clients particuliers d'être mis en relation avec un livreur disponible.
 
-## Code scaffolding
+## Documentations
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Lien vers la [Documentation technique](../master/docs/TECHDOC.md)
 
-## Build
+## License
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Producteur à Particulier est sous licence [MIT](LICENSE).

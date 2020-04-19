@@ -13,7 +13,6 @@ export class SliderKmComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.value);
   }
   autoTicks = false;
   disabled = false;

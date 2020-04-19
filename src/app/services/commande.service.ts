@@ -10,7 +10,8 @@ export class CommandeService {
   private urlApi = 'http://localhost:3000/deliveries/';
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Cache-Control': 'no-cache'
+    'Cache-Control': 'no-cache',
+    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
   });
   options = {
     headers: this.httpHeaders
@@ -20,17 +21,17 @@ export class CommandeService {
   constructor(private httpClient: HttpClient) { }
 
   getAllDelivery() {
-    return this.httpClient.get<Livraison[]>(this.urlApi);
+    return this.httpClient.get<Livraison[]>(this.urlApi, this.options);
   }
 
   getOneDeliver(id: string) {
-    return this.httpClient.get<Livraison>(this.urlApi + ':' + id);
+    return this.httpClient.get<Livraison>(this.urlApi + id, this.options);
 
   }
   updateDelivery(delivery: Livraison) {
-    return this.httpClient.put<Livraison>(this.urlApi + delivery._id, delivery);
+    return this.httpClient.put<Livraison>(this.urlApi + delivery._id, delivery, this.options);
   }
   deleteDelivery(id: string) {
-    return this.httpClient.delete<Livraison>(this.urlApi + id);
+    return this.httpClient.delete<Livraison>(this.urlApi + id, this.options);
   }
 }

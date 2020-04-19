@@ -51,6 +51,7 @@ import { CommandeDoneComponent } from './livraison-done/commande-done/commande-d
 import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.component';
 import { MapComponent } from './map/map.component';
 import { GeocodeService } from './services/geocode.service';
+import { AccueilComponent } from './accueil/accueil/accueil.component';
 
 @NgModule({
   exports: [
@@ -91,7 +92,8 @@ import { GeocodeService } from './services/geocode.service';
     SidenavbarComponent,
     CommandeDoneComponent,
     DialogSupprComponent,
-    MapComponent
+    MapComponent,
+    AccueilComponent,
 
   ],
   entryComponents: [

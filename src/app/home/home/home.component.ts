@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
   }
   getLivraison(event: Livraison) {
     this.commandeService.updateDelivery(event).subscribe(value => {
-      console.warn(value);
     })
   }
 }

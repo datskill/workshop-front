@@ -5,6 +5,7 @@
         </button>
         <h1 class="example-app-name">PaP</h1>
         <span class="example-spacer"></span>
+        <p *ngIf="isLogged">{{email}}</p>
         <button *ngIf="isLogged" mat-icon-button (click)="logout()">
             <mat-icon>power_settings_new</mat-icon>
         </button>
@@ -15,7 +16,7 @@
             fixedTopGap="56">
             <mat-nav-list>
                 <div class="position-nav" *ngIf="whichUser === UserType.ARTISAN">
-                    <a mat-list-item routerLink="/home" (click)="toggle(snav)">Accueil</a>
+                    <a mat-list-item routerLink="/accueil" (click)="toggle(snav)">Accueil</a>
                     <a mat-list-item routerLink="/create-command" (click)="toggle(snav)">Créer une commande</a>
                     <a mat-list-item routerLink="/home" (click)="toggle(snav)">Voir mes commandes</a>
                     <a mat-list-item routerLink="/archive-commande" (click)="toggle(snav)">Voir mes commandes
@@ -23,7 +24,7 @@
 
                 </div>
                 <div class="position-nav" *ngIf="whichUser === UserType.LIVREUR">
-                    <a mat-list-item routerLink="/home" (click)="toggle(snav)">Accueil</a>
+                    <a mat-list-item routerLink="/accueil" (click)="toggle(snav)">Accueil</a>
                     <a mat-list-item routerLink="/home" (click)="toggle(snav)">Voir toutes les livraisons</a>
                     <a mat-list-item routerLink="/map">Votre trajet</a>
                 </div>

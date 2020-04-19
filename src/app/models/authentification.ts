@@ -1,4 +1,5 @@
 export class Authentification {
-    email: string;
+    username: string;
     password: string;
+    access_token?: string;
 }

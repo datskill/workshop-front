@@ -46,7 +46,6 @@ export class InscriptionComponent implements OnInit {
   onSubmit(formValue: any): void {
     // Appel route Back Livreur
     this.inscriptionForm.value.type = this.selected;
-    console.log(this.inscriptionForm.value.type);
     if (this.inscriptionForm.value.type === '0') {
       let livreur: Deliverer = new Deliverer();
       livreur.deliveryArea = this.rayonKM;
@@ -73,7 +72,6 @@ export class InscriptionComponent implements OnInit {
       artisan.phoneNumber = this.inscriptionForm.value.numeroTel;
       // appel route back commercant
       this.inscriptionService.postInscriptionProducer(artisan).subscribe(value => {
-        console.log(value);
       })
     }
     this.router.navigate(['/login']);

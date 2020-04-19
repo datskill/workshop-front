@@ -9,6 +9,7 @@ import { AuthGuard } from './services/auth.guard';
 import { CreateCommandComponent } from './create-command/create-command/create-command.component';
 import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
 import { MapComponent } from './map/map.component';
+import { AccueilComponent } from './accueil/accueil/accueil.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'map',
     component: MapComponent
+  },
+  {
+    path: 'accueil',
+    component: AccueilComponent
   }
 ];
 

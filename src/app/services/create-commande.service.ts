@@ -12,7 +12,8 @@ export class CreateCommandeService {
   private urlApi = 'http://localhost:3000/deliveries/';
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Cache-Control': 'no-cache'
+    'Cache-Control': 'no-cache',
+    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
   });
   options = {
     headers: this.httpHeaders

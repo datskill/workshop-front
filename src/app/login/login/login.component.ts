@@ -29,15 +29,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(formvalue: any): void {
-    this.authentification.email = this.loginForm.value.email;
+    this.authentification.username = this.loginForm.value.email;
     this.authentification.password = this.loginForm.value.password;
     this.authService.login(this.authentification).subscribe(value => {
       console.log(value);
-      if (value.status === 200) {
+      if (value.status === 201) {
         const redirectUrl = '/home';
         sessionStorage.setItem('type', value.body.type);
         sessionStorage.setItem('user', value.body._id);
         sessionStorage.setItem('logged', 'true');
+        sessionStorage.setItem('token', value.body.access_token);
         this.authService.isLogged = true;
         this.router.navigate([redirectUrl]);
         this.authService.getValue();

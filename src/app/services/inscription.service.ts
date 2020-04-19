@@ -16,12 +16,11 @@ export class InscriptionService {
 
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Cache-Control': 'no-cache'
+    'Cache-Control': 'no-cache',
   });
   options = {
     headers: this.httpHeaders
   };
-
   postInscription(obj: Deliverer) {
     return this.httpClient.post<Deliverer>(this.urlApiDeliverer, obj, this.options);
   }

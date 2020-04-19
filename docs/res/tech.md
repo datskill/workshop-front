@@ -65,6 +65,10 @@ $ ng serve -o
 ```
 
 ```bash
+# Build pour la production
+$ ng build --prod
+```
+```bash
 # production mode
 $ http-server -p 8080 -c-1 dist/workshop-front
 ```

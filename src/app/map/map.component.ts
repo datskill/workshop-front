@@ -5,6 +5,7 @@ import { Deliverer } from '../models/livreur';
 import { DialogLivraisonComponent } from '../shared/dialog-livraison/dialog-livraison.component';
 import { MatDialog } from '@angular/material';
 import { GeocodeService } from '../services/geocode.service';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -48,32 +49,30 @@ export class MapComponent implements AfterViewInit {
 
         this.Adresses.push(item.deliveryAddress);
       });
-        console.log("Deliveries", this.Deliveries);
-        console.log("Adresses", this.Adresses);
-      })
-    }
+    })
+  }
 
   livrerCommandeTermine(d: any): void {
-      this.commandeService.updateDelivery(d).subscribe(data => {
-        d.isDelivered = true;
-      })
+    this.commandeService.updateDelivery(d).subscribe(data => {
+      d.isDelivered = true;
+    })
     this.getDeliveries();
-    }
+  }
 
-    getC(Adresses) {
-      this.geocode.getAcoordinates(Adresses);
-      console.log(this.geocode.getAcoordinates(Adresses));
-    }
+  getC(Adresses) {
+    this.geocode.getAcoordinates(Adresses);
+  }
+
   ngAfterViewInit() {
-      this.mapInitializer();
-      this.getDeliveries();
-    }
+    this.mapInitializer();
+    this.getDeliveries();
+  }
 
-  valid() {}
+  valid() { }
 
   mapInitializer() {
-      this.map = new google.maps.Map(this.gmap.nativeElement,
-        this.mapOptions);
-      this.marker.setMap(this.map);
-    }
+    this.map = new google.maps.Map(this.gmap.nativeElement,
+      this.mapOptions);
+    this.marker.setMap(this.map);
+  }
 }

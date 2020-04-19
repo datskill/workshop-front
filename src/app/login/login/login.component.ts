@@ -6,7 +6,6 @@ import { Authentification } from 'src/app/models/authentification';
 import { LoginService } from 'src/app/services/login.service';
 import { InscriptionService } from 'src/app/services/inscription.service';
 import { MatDialog } from '@angular/material';
-import { DialogErrorComponent } from 'src/app/shared/dialog-error/dialog-error.component';
 
 @Component({
   selector: 'app-login',
@@ -44,14 +43,7 @@ export class LoginComponent implements OnInit {
         this.authService.getValue();
       } else {
         console.log('lel');
-        const dialogRef = this.dialog.open(DialogErrorComponent, {
-          width: '250px',
-          data: {}
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          this.loginForm.reset();
-          this.router.navigate(['/login']);
-        });
+
       }
     })
   }

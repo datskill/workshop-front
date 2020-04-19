@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Deliverer } from '../models/livreur';
 import { Producer } from '../models/producer';
-import { Utilisateur } from '../models/utilisateur';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +10,8 @@ export class InscriptionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private urlApiDeliverer = 'http://localhost:3000/deliverers/';
-  private urlApiProducer = 'http://localhost:3000/producers/';
+  private urlApiDeliverer = 'http://ns334507.ip-5-196-65.eu:3000/deliverers/';
+  private urlApiProducer = 'http://ns334507.ip-5-196-65.eu:3000/producers/';
 
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',

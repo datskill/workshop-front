@@ -71,8 +71,7 @@ export class InscriptionComponent implements OnInit {
       artisan.companyName = this.inscriptionForm.value.nomSociete;
       artisan.phoneNumber = this.inscriptionForm.value.numeroTel;
       // appel route back commercant
-      this.inscriptionService.postInscriptionProducer(artisan).subscribe(value => {
-      })
+      this.inscriptionService.postInscriptionProducer(artisan).subscribe(value => { })
     }
     this.router.navigate(['/login']);
   }

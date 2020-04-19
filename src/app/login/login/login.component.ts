@@ -42,9 +42,7 @@ export class LoginComponent implements OnInit {
         this.authService.isLogged = true;
         this.router.navigate([redirectUrl]);
         this.authService.getValue();
-      } else {
-
-      }
+      } else { }
     })
   }
 }

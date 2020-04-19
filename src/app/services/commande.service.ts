@@ -7,7 +7,7 @@ import { Livraison } from '../models/livraison';
 })
 export class CommandeService {
 
-  private urlApi = 'http://localhost:3000/deliveries/';
+  private urlApi = 'http://ns334507.ip-5-196-65.eu:3000/deliveries/';
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache',

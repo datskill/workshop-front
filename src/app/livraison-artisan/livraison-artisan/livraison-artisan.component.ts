@@ -17,7 +17,7 @@ export class LivraisonArtisanComponent implements OnInit {
   constructor(private commandeService: CommandeService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.newId = this.livraisonAttente._id.slice(0, 3);
+    this.newId = this.livraisonAttente._id.substr(this.livraisonAttente._id.length - 6);
   }
 
   deleteDelivery() {

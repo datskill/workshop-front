@@ -22,7 +22,7 @@ export class DialogSupprComponent implements OnInit {
 
   suppr(): void {
     this.commandeService.deleteDelivery(this.data.id).subscribe(value => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/accueil']);
     });
   }
 

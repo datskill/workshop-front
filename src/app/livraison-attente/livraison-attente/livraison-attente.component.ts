@@ -46,11 +46,11 @@ export class LivraisonAttenteComponent implements OnInit {
     this.emitIndex.emit(this.index);
     this.livraisonAttente.isDelivered = true;
     this.emitLivraison.emit(this.livraisonAttente);
-    const dialogRef = this.dialog.open(DialogLivraisonComponent, {
-      width: '500px',
-      data: { name: this.newId, estLivre: true }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    // const dialogRef = this.dialog.open(DialogLivraisonComponent, {
+    //   width: '500px',
+    //   data: { name: this.newId, estLivre: true }
+    // });
+    // dialogRef.afterClosed().subscribe(result => {
+    // });
   }
 }

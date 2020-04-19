@@ -66,17 +66,18 @@ Cela va initialiser le projet et installer les dépendances nécessaires au proj
 ## Démarrer l'application
 
 ```bash
-# development
+# development without services workers
 $ ng serve -o
 ```
 
 ```bash
-# Build pour la production
-$ ng build --prod
-```
-```bash
-# production mode
+# development with services workers
 $ http-server -p 8080 -c-1 dist/workshop-front
+```
+
+```bash
+# Build for production
+$ ng build --prod
 ```
 
 #### [Retour au sommaire](../../master/README.md)

@@ -13,7 +13,7 @@ Notre application permet aux producteurs désirant vendre et livrer ses clients 
 
 ## Documentations
 
-Lien vers la [Documentation technique](../master/docs/TECHDOC.md)
+Lien vers la [Documentation technique](../master/docs/tech.md)
 
 ## License
 

@@ -29,6 +29,12 @@ Nous avons utilisés plusieurs packages pour réaliser le site, notamment :
 
 Toutes les dépendances sont à retrouvées dans le **package.json**
 
+- Nous avons adopté l'arboresence ci-dessous pour les fichiers du front : 
+
+- Les **services** dans le dossier src/app/services
+
+- Les **composants** dans leurs dossiers respectifs /src/app/nom_dossier/composant.ts
+
 
 ## 2. Mise en route
 

@@ -13,7 +13,7 @@ Notre application permet aux producteurs désirant vendre et livrer ses clients 
 
 ## 1. Solution technique
 
-<p align="center"><a href="http://angular.io/" target="blank"><img src="https://www.stickpng.com/assets/images/5847ea22cef1014c0b5e4833.png" width="160" alt="Angular Logo"/></a></p>
+<p align="center"><a href="http://angular.io/" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/langfr-440px-Angular_full_color_logo.svg.png" width="160" alt="Angular Logo"/></a></p>
 
 **Angular** est un framework typescript puissant et léger.
 

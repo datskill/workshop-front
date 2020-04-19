@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { DialogLivraisonComponent } from '../dialog-livraison/dialog-livraison.component';
+import { Router } from '@angular/router';
 import { CommandeService } from 'src/app/services/commande.service';
-import { Livraison } from 'src/app/models/livraison';
 
 @Component({
   selector: 'app-dialog-suppr',
@@ -12,7 +11,7 @@ import { Livraison } from 'src/app/models/livraison';
 export class DialogSupprComponent implements OnInit {
 
   constructor(private commandeService: CommandeService, public dialogRef: MatDialogRef<DialogSupprComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,7 +22,7 @@ export class DialogSupprComponent implements OnInit {
 
   suppr(): void {
     this.commandeService.deleteDelivery(this.data.id).subscribe(value => {
-      location.reload();
+      this.router.navigate(['/home']);
     });
   }
 

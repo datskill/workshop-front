@@ -8,6 +8,7 @@ import { InscriptionComponent } from './inscription/inscription/inscription.comp
 import { AuthGuard } from './services/auth.guard';
 import { CreateCommandComponent } from './create-command/create-command/create-command.component';
 import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
+import { MapComponent } from './map/map.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'archive-commande',
     component: CommandeDoneComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
   }
 ];
 

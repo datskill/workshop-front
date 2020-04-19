@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { SellerComponent } from './seller/seller/seller.component';
 import { ClientComponent } from './client/client/client.component';
 import { SelectAutocompleteModule } from 'mat-select-autocomplete';
 import {
+  MatDividerModule,
   MatToolbarModule,
   MatCardModule,
   MatCheckboxModule,
@@ -47,9 +49,12 @@ import { GlobalErrorHandler } from './services/global-error.service';
 import { ServerErrorInterceptor } from './services/error-server.service';
 import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
 import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   exports: [
+    ScrollingModule,
+    MatDividerModule,
     MatPaginatorModule,
     MatToolbarModule,
     MatCardModule,
@@ -90,9 +95,12 @@ import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.compone
   ],
   entryComponents: [
     DialogLivraisonComponent,
-    DialogSupprComponent
+    DialogSupprComponent,
+    MapComponent
   ],
   imports: [
+    ScrollingModule,
+    MatDividerModule,
     BrowserModule,
     HttpClientModule,
     MatListModule,
@@ -110,6 +118,23 @@ import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.compone
     MatInputModule,
     MatSelectModule,
     AppRoutingModule,
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatTableModule,
+    MatGridListModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    SelectAutocompleteModule,
+    MatButtonModule,
+    MatTooltipModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule
   ],

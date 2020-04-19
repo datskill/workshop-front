@@ -1,0 +1,41 @@
+<mat-card class="mapitinirary">
+    <mat-card-header class="center">
+        <mat-card-title>Itinéraire de la livraison n°1 </mat-card-title>
+    </mat-card-header>
+    <mat-grid-list cols="2">
+        <mat-grid-tile>
+
+            <div #mapContainer id="map"></div>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <cdk-virtual-scroll-viewport itemSize="5" class="example-viewport">
+                <mat-list #shoes>
+                    <mat-list *ngFor="let shoe of typesOfShoes">
+
+                        <mat-card>
+                            <mat-card-header class="center">
+                                <mat-card-title>Livraison {{shoe}}</mat-card-title>
+                                <mat-card-subtitle class="center">Client 1</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content class="center">
+                                <p>
+                                    190 rue du vent,
+                                    34852 montpellier
+                                </p>
+
+                            </mat-card-content>
+                            <mat-card-actions  class="center">
+                                 <button (click)="valid()" mat-raised-button> Valider</button>
+                            </mat-card-actions>
+
+                        </mat-card>
+
+                    </mat-list>
+                </mat-list>
+            </cdk-virtual-scroll-viewport>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</mat-card>

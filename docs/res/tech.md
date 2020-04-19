@@ -13,7 +13,7 @@ Notre application permet aux producteurs désirant vendre et livrer ses clients 
 
 ## 1. Solution technique
 
-<p align="center"><a href="http://angular.io/" target="blank"><img src="https://www.stickpng.com/assets/images/5847ea22cef1014c0b5e4833.png" width="160" alt="Angular Logo"/></a></p>
+<p align="center"><a href="http://angular.io/" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/langfr-440px-Angular_full_color_logo.svg.png" width="160" alt="Angular Logo"/></a></p>
 
 **Angular** est un framework typescript puissant et léger.
 
@@ -35,7 +35,7 @@ Toutes les dépendances sont à retrouvées dans le **package.json**
 ### Pré-requis
 
 * Installation de <a href="https://nodejs.org/en/download/" target="blank">NodeJS</a> contenant <a href="https://www.npmjs.com/package/mongodb" target="blank">NPM</a>
-* Installation du gestionnaire de dépendances : <a href="https://angular.io/" target="blank">Angular</a>
+* Installation d'<a href="https://angular.io/" target="blank">Angular</a>
   * Via <a href="https://www.npmjs.com/package/yarn" target="blank">NPM</a>
    * ```bash
       $ npm i -g @angular/cli
@@ -64,6 +64,10 @@ Cela va initialiser le projet et installer les dépendances nécessaires au proj
 $ ng serve -o
 ```
 
+```bash
+# Build pour la production
+$ ng build --prod
+```
 ```bash
 # production mode
 $ http-server -p 8080 -c-1 dist/workshop-front

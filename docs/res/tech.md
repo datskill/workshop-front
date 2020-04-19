@@ -35,7 +35,7 @@ Toutes les dépendances sont à retrouvées dans le **package.json**
 ### Pré-requis
 
 * Installation de <a href="https://nodejs.org/en/download/" target="blank">NodeJS</a> contenant <a href="https://www.npmjs.com/package/mongodb" target="blank">NPM</a>
-* Installation du gestionnaire de dépendances : <a href="https://angular.io/" target="blank">Angular</a>
+* Installation d'<a href="https://angular.io/" target="blank">Angular</a>
   * Via <a href="https://www.npmjs.com/package/yarn" target="blank">NPM</a>
    * ```bash
       $ npm i -g @angular/cli

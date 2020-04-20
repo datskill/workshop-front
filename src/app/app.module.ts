@@ -48,7 +48,6 @@ import { ServerErrorInterceptor } from './services/error-server.service';
 import { CommandeDoneComponent } from './livraison-done/commande-done/commande-done.component';
 import { DialogSupprComponent } from './shared/dialog-suppr/dialog-suppr.component';
 import { AccueilComponent } from './accueil/accueil/accueil.component';
-import { LivraisonCoursComponent } from './livraison-cours/livraison-cours.component';
 import { LivraisonEncourComponent } from './livraison-cours/livraison-encour/livraison-encour.component';
 
 @NgModule({
@@ -90,7 +89,6 @@ import { LivraisonEncourComponent } from './livraison-cours/livraison-encour/liv
     CommandeDoneComponent,
     DialogSupprComponent,
     AccueilComponent,
-    LivraisonCoursComponent,
     LivraisonEncourComponent,
 
   ],

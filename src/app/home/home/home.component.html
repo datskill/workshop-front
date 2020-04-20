@@ -1,19 +1,15 @@
 <!-- TODO : NgIf si on est livreur ou artisan-->
 <div class="container" *ngIf="isListeFull">
-    <div class="position" *ngIf="whoIsConnected === '0'">
+    <div class="position" *ngIf="whoIsConnected === '0' && !isListeEmpy">
         <div style="padding-bottom: 20px;">Livraison en attente d'un livreur</div>
         <div *ngFor="let livraison of listeLivraison; let index = index">
             <app-livraison-attente *ngIf="livraison.isPending" [livraisonAttente]="livraison" [index]=index
                 (emitLivraison)="getLivraison($event)" (emitIndex)="getIndex($event)">
             </app-livraison-attente>
         </div>
-        <hr>
-        <div style="padding-bottom: 20px;">Vos livraisons en cours</div>
-        <div *ngFor="let livraison of listeLivraison; let index = index">
-            <app-livraison-attente *ngIf="!livraison.isPending && !livraison.isDelivered" [livraisonAttente]="livraison"
-                [index]=index (emitLivraison)="getLivraison($event)" (emitIndex)="getIndex($event)">
-            </app-livraison-attente>
-        </div>
+    </div>
+    <div *ngIf="isListeEmpy">
+        <p>Aucune livraison en attente d'un livreur pour le moment</p>
     </div>
     <!-- TODO : NgIf si on est livreur ou artisan-->
     <div class="position" *ngIf="whoIsConnected === '1'">

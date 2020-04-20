@@ -18,3 +18,7 @@
 .align {
     text-align: center;
 }
+
+    #map {
+        height: 100%;
+      }

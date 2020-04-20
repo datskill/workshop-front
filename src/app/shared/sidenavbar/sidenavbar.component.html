@@ -26,7 +26,7 @@
                 <div class="position-nav" *ngIf="whichUser === UserType.LIVREUR">
                     <a mat-list-item routerLink="/accueil" (click)="toggle(snav)">Accueil</a>
                     <a mat-list-item routerLink="/home" (click)="toggle(snav)">Voir toutes les livraisons</a>
-                    <a mat-list-item (click)="toggle(snav)">Votre trajet</a>
+                    <a mat-list-item (click)="toggle(snav)" routerLink="/livraison-en-cours">Votre trajet</a>
                 </div>
                 <!-- <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a> -->
             </mat-nav-list>

@@ -19,21 +19,33 @@ export class HomeComponent implements OnInit {
   getIndexSelected: string;
   listeLivraison: Livraison[] = new Array<Livraison>();
   isListeFull: boolean = false;
+  isListeEmpy: boolean = false;
   constructor(private commandeService: CommandeService) { }
 
   ngOnInit() {
     this.whoIsConnected = sessionStorage.getItem('type');
     this.commandeService.getAllDelivery().subscribe(value => {
+      const tempList = new Array<Livraison>();
       if (value) {
+        console.warn(value);
         value.forEach(element => {
           if (this.whoIsConnected === '1' && element.producer._id === sessionStorage.getItem('user')) {
-            this.listeLivraison.push(element);
+            tempList.push(element);
+            // this.listeLivraison.forEach(item => {
+            //   item.deliverer = new Deliverer();
+            //   item.deliverer = element.deliverer;
+            // });
           } else if (this.whoIsConnected === '0') {
-            this.listeLivraison.push(element);
+            tempList.push(element);
           }
         });
       }
+      this.listeLivraison = tempList;
+      if (this.listeLivraison.length === 0) {
+        this.isListeEmpy = true;
+      }
     });
+    console.warn(this.listeLivraison);
     this.isListeFull = true;
 
   }

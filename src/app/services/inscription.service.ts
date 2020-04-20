@@ -13,6 +13,7 @@ export class InscriptionService {
 
   private urlApiDeliverer = 'http://localhost:3000/deliverers/';
   private urlApiProducer = 'http://localhost:3000/producers/';
+  private token = sessionStorage.getItem('token');
 
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -24,11 +25,12 @@ export class InscriptionService {
   httpHeadersToken = new HttpHeaders({
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache',
-    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+    'Authorization': `Bearer ${this.token}`
   });
   opt = {
     headers: this.httpHeadersToken
   };
+
   postInscription(obj: Deliverer) {
     return this.httpClient.post<Deliverer>(this.urlApiDeliverer, obj, this.options);
   }
@@ -36,18 +38,5 @@ export class InscriptionService {
   postInscriptionProducer(obj: Producer) {
     return this.httpClient.post<Producer>(this.urlApiProducer, obj, this.options);
 
-  }
-
-  getAllDeliverer() {
-    return this.httpClient.get<Deliverer[]>(this.urlApiDeliverer, this.opt);
-  }
-  getDeliverer(id: string) {
-    return this.httpClient.get<Deliverer>(this.urlApiDeliverer + id, this.opt);
-  }
-  getProducer(id: string) {
-    return this.httpClient.get<Producer>(this.urlApiProducer + id, this.opt);
-  }
-  getAllProducer() {
-    return this.httpClient.get<Deliverer[]>(this.urlApiProducer, this.opt);
   }
 }

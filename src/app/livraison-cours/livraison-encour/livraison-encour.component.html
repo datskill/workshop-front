@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="position">
+        <div style="padding-bottom: 20px;">Vos livraisons en cours</div>
+        <div *ngFor="let livraison of listeLivraison; let index = index">
+            <app-livraison-attente *ngIf="!livraison.isPending && !livraison.isDelivered" [livraisonAttente]="livraison"
+                [index]=index (emitLivraison)="getLivraison($event)" (emitIndex)="getIndex($event)">
+            </app-livraison-attente>
+        </div>
+    </div>
+</div>

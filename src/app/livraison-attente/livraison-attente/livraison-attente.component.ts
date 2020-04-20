@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Livraison } from 'src/app/models/livraison';
 import { MatDialog } from '@angular/material';
 import { DialogLivraisonComponent } from 'src/app/shared/dialog-livraison/dialog-livraison.component';
@@ -17,16 +17,21 @@ export class LivraisonAttenteComponent implements OnInit {
   @Input() index: string;
   tempLivreur: Deliverer = new Deliverer();
   newId: string;
-
-  constructor(public dialog: MatDialog, private inscriptionService: InscriptionService, private commandeService: CommandeService) { }
+  map: google.maps.Map;
+  google: google.maps.Geocoder;
+  geoRequest: google.maps.GeocoderRequest;
+  location: google.maps.LatLng;
+  constructor(public dialog: MatDialog, private commandeService: CommandeService) { }
 
   ngOnInit() {
-    this.inscriptionService.getDeliverer(sessionStorage.getItem('user')).subscribe(value => {
+    console.warn(this.livraisonAttente);
+    this.commandeService.getDeliverer(sessionStorage.getItem('user')).subscribe(value => {
       if (value) {
         this.tempLivreur = value;
       }
     });
-    this.newId = this.livraisonAttente._id.slice(0, 3);
+    this.newId = this.livraisonAttente._id.substr(this.livraisonAttente._id.length - 6);
+    this.initMap();
   }
 
   livrerCommande(): void {
@@ -52,5 +57,14 @@ export class LivraisonAttenteComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+
+  initMap() {
+    var mapProp = {
+      center: new google.maps.LatLng(43.57867158261779, 3.911726462499998),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(document.getElementById('gmap'), mapProp);
   }
 }

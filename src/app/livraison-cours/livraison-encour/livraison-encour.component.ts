@@ -17,7 +17,6 @@ export class LivraisonEncourComponent implements OnInit {
     this.commandeService.getAllDelivery().subscribe(value => {
       const tempList = new Array<Livraison>();
       if (value) {
-        console.warn(value);
         value.forEach(element => {
           tempList.push(element);
         });

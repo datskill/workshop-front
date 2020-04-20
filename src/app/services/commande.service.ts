@@ -29,7 +29,6 @@ export class CommandeService {
   }
 
   getOneDeliver(id: string) {
-    console.warn(this.options);
     return this.httpClient.get<Livraison>(this.urlApi + id, this.options);
 
   }

@@ -24,7 +24,6 @@ export class LivraisonAttenteComponent implements OnInit {
   constructor(public dialog: MatDialog, private commandeService: CommandeService) { }
 
   ngOnInit() {
-    console.warn(this.livraisonAttente);
     this.commandeService.getDeliverer(sessionStorage.getItem('user')).subscribe(value => {
       if (value) {
         this.tempLivreur = value;

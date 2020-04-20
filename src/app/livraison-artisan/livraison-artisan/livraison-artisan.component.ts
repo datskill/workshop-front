@@ -18,7 +18,6 @@ export class LivraisonArtisanComponent implements OnInit {
 
   ngOnInit() {
     this.newId = this.livraisonAttente._id.substr(this.livraisonAttente._id.length - 6);
-    console.log(this.livraisonAttente);
   }
 
   deleteDelivery() {

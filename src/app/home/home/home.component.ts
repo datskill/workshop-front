@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
     this.commandeService.getAllDelivery().subscribe(value => {
       const tempList = new Array<Livraison>();
       if (value) {
-        console.warn(value);
         value.forEach(element => {
           if (this.whoIsConnected === '1' && element.producer._id === sessionStorage.getItem('user')) {
             tempList.push(element);
@@ -45,7 +44,7 @@ export class HomeComponent implements OnInit {
         this.isListeEmpy = true;
       }
     });
-    console.warn(this.listeLivraison);
+
     this.isListeFull = true;
 
   }

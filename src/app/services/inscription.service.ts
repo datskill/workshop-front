@@ -11,8 +11,8 @@ export class InscriptionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private urlApiDeliverer = 'http://localhost:3000/deliverers/';
-  private urlApiProducer = 'http://localhost:3000/producers/';
+  private urlApiDeliverer = 'http://ns334507.ip-5-196-65.eu:3000/deliverers/';
+  private urlApiProducer = 'http://ns334507.ip-5-196-65.eu:3000/producers/';
   private token = sessionStorage.getItem('token');
 
   httpHeaders = new HttpHeaders({

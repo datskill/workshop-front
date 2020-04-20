@@ -9,9 +9,9 @@ import { Producer } from '../models/producer';
 })
 export class CommandeService {
 
-  private urlApi = 'http://localhost:3000/deliveries/';
-  private urlApiDeliverer = 'http://localhost:3000/deliverers/';
-  private urlApiProducer = 'http://localhost:3000/producers/';
+  private urlApi = 'http://ns334507.ip-5-196-65.eu:3000/deliveries/';
+  private urlApiDeliverer = 'http://ns334507.ip-5-196-65.eu:3000/deliverers/';
+  private urlApiProducer = 'http://ns334507.ip-5-196-65.eu:3000/producers/';
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache',
